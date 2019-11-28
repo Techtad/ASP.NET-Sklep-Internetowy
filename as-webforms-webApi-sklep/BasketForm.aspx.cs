@@ -74,13 +74,17 @@ namespace as_webforms_sklep
                 basketList = (List<BasketItem>)Session["basket"];
             }
 
+            int totalAmount = 0;
             double totalPrice = 0;
             foreach (BasketItem basketItem in basketList)
             {
                 totalPrice += basketItem.Amount * basketItem.Price;
+                totalAmount += basketItem.Amount;
             }
 
             lTotalPrice.Text = "Cena wszystkich przedmiotów w koszyku to: " + totalPrice.ToString("N2") + " zł";
+
+            bOrder.Enabled = totalAmount > 0;
         }
 
         protected void basketHandler(object source, RepeaterCommandEventArgs e)
