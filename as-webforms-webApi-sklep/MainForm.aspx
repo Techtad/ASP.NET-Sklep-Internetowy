@@ -84,7 +84,7 @@
                                             <asp:TextBox ID="tbStock" runat="server" type="hidden" Text='<%# Eval("stock") %>'></asp:TextBox>
                                             <asp:TextBox ID="tbPrice" runat="server" type="hidden" Text='<%# Eval("price") %>'></asp:TextBox>
                                             <asp:TextBox ID="tbAmount" CssClass="prod-but-amount" runat="server" type="number" value="1" min="1" max='<%# Eval("stock") %>' step="1" Width="50"></asp:TextBox>
-                                            <asp:Button ID="bAddProduct" CssClass="prod-buy-button" CommandName="addToBasket" CommandArgument='<%# Eval("id") %>' runat="server" Text="Dodaj do koszyka" />
+                                            <asp:Button ID="bAddProduct" CssClass="prod-buy-button" CommandName="addToBasket" CommandArgument='<%# Eval("id") %>' runat="server" Text="Dodaj do koszyka" PostBackUrl="/" />
                                         </div>
                                     </div>
                                 </div>
