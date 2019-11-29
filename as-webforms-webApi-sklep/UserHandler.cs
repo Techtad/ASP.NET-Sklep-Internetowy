@@ -33,10 +33,20 @@ namespace as_webforms_sklep
                 if (queryResp.Rows.Count == 1)
                 {
                     int id = int.Parse(queryResp.Rows[0]["id"].ToString());
-                    UserId = id;
-                    EncryptionKey = password;
-                    Username = username;
-                    Success = true;
+                    bool isVerified = Convert.ToBoolean(DatabaseHandler.selectQuery("SELECT verified FROM user_data WHERE user_id LIKE '" + id.ToString() + "'").Rows[0]["verified"]);
+                    if(isVerified)
+                    {
+                        UserId = id;
+                        EncryptionKey = password;
+                        Username = username;
+                        Success = true;
+                    } else
+                    {
+                        UserId = -1;
+                        EncryptionKey = null;
+                        Username = username;
+                        Success = false;
+                    }
                 } else
                 {
                     UserId = -1;

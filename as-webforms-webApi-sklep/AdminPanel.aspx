@@ -11,6 +11,7 @@
 		<link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 		<link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,700" />
 		<link rel="stylesheet" href="css/AdminPanel/admin_panel.css" />
+            <link href="/css/MainPage/headerStyle.css" rel="stylesheet" />
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -18,8 +19,19 @@
 	</head>
 	<body>
 		<form id="form1" runat="server">
-			<asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="MainForm.aspx">Powrót do Main.</asp:LinkButton>
-			<br />
+			<header>
+            <div id="title">
+                <img src="res/img/logo.png" />
+            </div>
+            <div id="menu">
+                <div id="menu-list-box">
+                    <ul id="menu-list">
+                        <li>
+                            <asp:LinkButton ID="lbToLogin" runat="server" PostBackUrl="~/MainForm.aspx">Strona główna</asp:LinkButton>
+                        </li>
+                </div>
+            </div>
+        </header>
 			<asp:Label ID="lTest" runat="server" ForeColor="Red"></asp:Label>
 			<div class="container">
 				<section id="fancyTabWidget" class="tabs t-tabs">

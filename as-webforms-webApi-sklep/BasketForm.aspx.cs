@@ -146,9 +146,10 @@ namespace as_webforms_sklep
         {
             if (!IsValid) return;
 
-            if (DatabaseHandler.createOrder(Session["usertoken"] == null ? "" : (string)Session["usertoken"], (List<BasketItem>)Session["basket"]))
+            int orderCreated = DatabaseHandler.createOrder(Session["usertoken"] == null ? "" : (string)Session["usertoken"], (List<BasketItem>)Session["basket"]);
+            if (orderCreated != -1)
             {
-                EmailService.ProductBought(tbEmail.Text);
+                EmailService.ProductBought(tbEmail.Text, orderCreated.ToString(), (List<BasketItem>)Session["basket"]);
                 Session["basket"] = null;
                 Response.Redirect("ReceiptPage.aspx");
             }

@@ -15,7 +15,7 @@ namespace as_webforms_sklep
             string token = UserHandler.tryToLogIn(tbUsername.Text, tbPassword.Text);
             if(token == "fail")
             {
-                lMsg.Text = "Nieprawidłowy login lub hasło.";
+                lMsg.Text = "Nieprawidłowy login lub hasło, albo konto nie zostało jeszcze aktywowane.";
             } else
             {
                 Session["usertoken"] = token;

@@ -63,6 +63,7 @@ namespace as_webforms_sklep
 
             public int executeCommand(string cmd)
             {
+                Debug.WriteLine(cmd);
                 return new MySqlCommand(cmd, conn).ExecuteNonQuery();
             }
 
@@ -143,7 +144,7 @@ namespace as_webforms_sklep
             }
         }
 
-        public static bool createOrder(string userToken, List<BasketItem> basket)
+        public static int createOrder(string userToken, List<BasketItem> basket)
         {
             int userId = UserHandler.getUserId(userToken);
             var orderIdQuery = selectQuery("SELECT MAX(id) as maxid FROM orders");
@@ -171,11 +172,11 @@ namespace as_webforms_sklep
             if(orderRecords == 1 && orderContentRecords == basket.Count)
             {
                 transaction.commit();
-                return true;
+                return orderId;
             } else
             {
                 transaction.rollback();
-                return false;
+                return -1;
             }
         }
 

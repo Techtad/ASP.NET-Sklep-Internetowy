@@ -24,7 +24,7 @@ namespace as_webforms_sklep
                     if (UserHandler.tryToRegister(tbUsername.Text, tbPassword.Text, tbEmail.Text, new string[3] { tbFirstName.Text, tbLastName.Text, tbAddress.Text}))
                     {
                         EmailService.UserRegisterConfirmation(tbEmail.Text, tbUsername.Text);
-                        lMsg.Text = "Pomyślnie zarejestrowano.";
+                        lMsg.Text = "Pomyślnie zarejestrowano. Na podany email wysłana została wiadomość z linkiem aktywacyjnym.";
                     } else
                     {
                         lMsg.Text = "Błąd podczas rejestracji.";

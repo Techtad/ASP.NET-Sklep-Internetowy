@@ -6,42 +6,24 @@
 <head runat="server">
     <title>F3B.com - Strona główna</title>
     <link href="css/all.css" rel="stylesheet" />
-    <style>
-        form {
-            width: 800px;
-            height: 600px;
-            margin: auto;
-            background: #2b6cae;
-            color: white;
-            text-align: center;
-            position: relative;
-        }
-
-        a {
-            display: block;
-            position: absolute;
-            top: 50%;
-            left: 32%;
-            height: 24px;
-            margin: auto;
-            background-color: #253147;
-            text-decoration: none;
-            color: #ffffff;
-        }
-
-            a:hover {
-                display: block;
-                background-color: #2195e0;
-                text-decoration: none;
-                color: white;
-            }
-    </style>
+        <link href="/css/MainPage/headerStyle.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
-            <div style="position:absolute; top: 40%">Twoje zamówienie zostało przyjętę. Wkrótce otrzymasz wiadomość email z zamówionymi kluczami.</div>
-            <div><a href="MainForm.aspx">Powrót do strony głównej</a>
-        </div>
+        <header>
+            <div id="title">
+                <img src="res/img/logo.png" />
+            </div>
+            <div id="menu">
+                <div id="menu-list-box">
+                    <ul id="menu-list">
+                        <li>
+                            <asp:LinkButton ID="lbToLogin" runat="server" PostBackUrl="~/MainForm.aspx">Strona główna</asp:LinkButton>
+                        </li>
+                </div>
+            </div>
+        </header>
+        <div style="text-align: center">Twoje zamówienie zostało przyjętę. Wkrótce otrzymasz wiadomość email z zamówionymi kluczami.</div>
     </form>
 </body>
 </html>

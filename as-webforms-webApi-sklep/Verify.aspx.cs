@@ -17,9 +17,14 @@ namespace as_webforms_webApi_sklep
         {
             if (!this.IsPostBack)
             {
-                string activationCode = !string.IsNullOrEmpty(Request.QueryString["ActivationCode"]) ? Request.QueryString["ActivationCode"] : Guid.Empty.ToString();
-                ltMessage.Text = "Your account has been verified succesfully";
-                DatabaseHandler.updateVerificationStatus(activationCode);
+                if (!string.IsNullOrEmpty(Request.QueryString["ActivationCode"])) {
+                    string activationCode = Request.QueryString["ActivationCode"];
+                    ltMessage.Text = "Konto zostało aktywowane. Możesz się teraz zalogować.";
+                    DatabaseHandler.updateVerificationStatus(activationCode);
+                } else
+                {
+                    ltMessage.Text = "Wystąpił błąd podczas próby aktywacji konta.";
+                }
             }
         }
     }
