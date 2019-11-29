@@ -16,6 +16,11 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/tabs.js"></script>
+	    <style type="text/css">
+            .auto-style1 {
+                height: 22px;
+            }
+        </style>
 	</head>
 	<body>
 		<form id="form1" runat="server">
@@ -61,7 +66,7 @@
 							<div>
 								<div class="row">
 									<div class="col-md-12">
-										<asp:GridView ID="gvUsers" AutoGenerateColumns="false" runat="server" OnRowCommand="gvUsers_RowCommand" DataKeyNames="id">
+										<asp:GridView ID="gvUsers" AutoGenerateColumns="false" runat="server" OnRowCommand="gvUsers_RowCommand" DataKeyNames="id" ForeColor="Black">
 											<Columns>
 												<asp:BoundField DataField="id" HeaderText="ID" />
 												<asp:BoundField DataField="username" HeaderText="Username" />
@@ -105,7 +110,7 @@
 										AutoGenerateColumns="false"
 										OnRowCommand="gvProducts_RowCommand"
 										DataKeyNames="id"
-										OnRowDataBound="Products_RowDataBound"
+										OnRowDataBound="Products_RowDataBound" ForeColor="Black"
 									>
 										<Columns>
 											<asp:BoundField DataField="id" HeaderText="ID" />
@@ -174,32 +179,32 @@
                                         <h2>Dodaj nowy produkt:</h2>
                                         <table border="1">
                                             <tr>
-                                                <th>Kategoria</th>
-                                                <th>Nazwa</th>
-                                                <th>Opis</th>
-                                                <th>Cena</th>
-                                                <th>Dostawca</th>
-                                                <th>Obrazek</th>
-                                                <th>-</th>
+                                                <th class="auto-style1">Kategoria</th>
+                                                <th class="auto-style1">Nazwa</th>
+                                                <th class="auto-style1">Opis</th>
+                                                <th class="auto-style1">Cena</th>
+                                                <th class="auto-style1">Dostawca</th>
+                                                <th class="auto-style1">Obrazek</th>
+                                                <th class="auto-style1">-</th>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <asp:DropDownList runat="server" ID="addCat"/>
+                                                    <asp:DropDownList runat="server" ID="addCat" ForeColor="Black"/>
                                                 </td>
                                                 <td>
-                                                    <asp:TextBox runat="server" ID="addName"/>
+                                                    <asp:TextBox runat="server" ID="addName" ForeColor="Black"/>
                                                 </td>
                                                 <td>
-                                                    <asp:TextBox runat="server" ID="addDesc"/>
+                                                    <asp:TextBox runat="server" ID="addDesc" ForeColor="Black"/>
                                                 </td>
                                                 <td>
-                                                    <asp:TextBox runat="server" ID="addPrice"/>
+                                                    <asp:TextBox runat="server" ID="addPrice" ForeColor="Black"/>
                                                 </td>
                                                 <td>
-                                                    <asp:TextBox runat="server" ID="addSupp"/>
+                                                    <asp:TextBox runat="server" ID="addSupp" ForeColor="Black"/>
                                                 </td>
                                                 <td>
-                                                    <asp:TextBox runat="server" ID="addImg"/>
+                                                    <asp:TextBox runat="server" ID="addImg" ForeColor="Black"/>
                                                 </td>
                                                 <td>
                                                     <asp:Button runat="server" Text="+" ID="addBT" OnClick="addBT_Click"/>
@@ -219,7 +224,7 @@
 										runat="server"
 										OnRowCommand="gvOrders_RowCommand"
 										DataKeyNames="id"
-										OnRowDataBound="Orders_RowDataBound"
+										OnRowDataBound="Orders_RowDataBound" ForeColor="Black"
 									>
 										<Columns>
 											<asp:BoundField DataField="id" HeaderText="ID" />
