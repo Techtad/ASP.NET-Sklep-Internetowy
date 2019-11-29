@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Rejestracja</title>
-    <link href="~/assets/css/RegisterPage/registerPage.css" rel="stylesheet" />
+    <link href="/css/RegisterPage/registerPage.css" rel="stylesheet" />
 </head>
 <body>
     <script type="text/javascript">

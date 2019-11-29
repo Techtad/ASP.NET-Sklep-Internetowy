@@ -9,7 +9,7 @@
 		<link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 		<link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 		<link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,700" />
-		<link rel="stylesheet" href="css/admin_panel.css" />
+		<link rel="stylesheet" href="css/AdminPanel/admin_panel.css" />
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

@@ -5,11 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta charset="UTF-8" />
-    <title>Sklep</title>
-    <link href="~/assets/css/MainPage/productStyle.css" rel="stylesheet" />
-    <link href="~/assets/css/MainPage/headerStyle.css" rel="stylesheet" />
-    <link href="~/assets/css/MainPage/mainStyle.css" rel="stylesheet" />
-    <link href="~/assets/css/MainPage/footerStyle.css" rel="stylesheet" />
+    <title>F3B.com - Strona główna</title>
+    <link href="/css/MainPage/productStyle.css" rel="stylesheet" />
+    <link href="/css/MainPage/headerStyle.css" rel="stylesheet" />
+    <link href="css/MainPage/mainStyle.css" rel="stylesheet" />
+    <link href="/css/MainPage/footerStyle.css" rel="stylesheet" />
     <style>
         * {
             margin: 0;
@@ -26,7 +26,7 @@
     <form id="form1" runat="server">
         <header>
             <div id="title">
-                <img src="assets/img/logo.png" />
+                <img src="res/img/logo.png" />
             </div>
             <div id="menu">
                 <div id="menu-list-box">

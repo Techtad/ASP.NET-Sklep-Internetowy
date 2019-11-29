@@ -98,25 +98,28 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminPanel.aspx" />
-    <Content Include="assets\css\MainPage\footerStyle.css" />
-    <Content Include="assets\css\MainPage\headerStyle.css" />
-    <Content Include="assets\css\MainPage\mainStyle.css" />
-    <Content Include="assets\css\MainPage\productStyle.css" />
-    <Content Include="assets\css\RegisterPage\registerPage.css" />
-    <Content Include="assets\img\headimglow.jpg" />
-    <Content Include="assets\img\image-placeholder.jpg" />
-    <Content Include="assets\img\logo.png" />
-    <Content Include="assets\img\pc_background.png" />
-    <Content Include="assets\img\placeholder.png" />
-    <Content Include="assets\img\tester_kabli.jfif" />
+    <Content Include="css\MainPage\footerStyle.css" />
+    <Content Include="css\MainPage\headerStyle.css" />
+    <Content Include="css\MainPage\mainStyle.css" />
+    <Content Include="css\MainPage\productStyle.css" />
+    <Content Include="css\RegisterPage\registerPage.css" />
+    <Content Include="res\img\logo.png" />
     <Content Include="BasketForm.aspx" />
-    <Content Include="css\admin_panel.css" />
+    <Content Include="css\AdminPanel\admin_panel.css" />
     <Content Include="Global.asax" />
     <Content Include="js\tabs.js" />
     <Content Include="LoginForm.aspx" />
     <Content Include="MainForm.aspx" />
     <Content Include="ReceiptPage.aspx" />
     <Content Include="RegisterForm.aspx" />
+    <Content Include="res\products\arma3.jpg" />
+    <Content Include="res\products\eu4.jfif" />
+    <Content Include="res\products\gta5.jfif" />
+    <Content Include="res\products\hoi4.jpg" />
+    <Content Include="res\products\ksp.jfif" />
+    <Content Include="res\products\minecraft.png" />
+    <Content Include="res\products\skyrim.jpg" />
+    <Content Include="res\products\witcher3.jfif" />
     <Content Include="Verify.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
