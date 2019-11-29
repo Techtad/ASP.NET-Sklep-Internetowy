@@ -207,7 +207,7 @@
                                                     <asp:TextBox runat="server" ID="addImg" ForeColor="Black"/>
                                                 </td>
                                                 <td>
-                                                    <asp:Button runat="server" Text="+" ID="addBT" OnClick="addBT_Click"/>
+                                                    <asp:Button runat="server" Text="+" ID="addBT" OnClick="addBT_Click" ForeColor="Black"/>
                                                 </td>
                                             </tr>
                                         </table>

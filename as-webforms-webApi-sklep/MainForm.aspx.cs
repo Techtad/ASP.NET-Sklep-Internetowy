@@ -147,7 +147,8 @@ namespace as_webforms_sklep
                 }
                 else
                 {
-                    basketItem.Amount = basketItem.Amount + amountToAdd;
+                    TextBox tbStock = (TextBox)e.Item.FindControl("tbStock");
+                    basketItem.Amount = Math.Min(basketItem.Amount + amountToAdd, int.Parse(tbStock.Text));
                 }
 
                 calculateBasketItemCount();

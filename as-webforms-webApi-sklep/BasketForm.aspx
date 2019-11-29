@@ -68,7 +68,7 @@
                         <tr>
                             <td><%# Eval("name") %></td>
                             <td>
-                                <asp:TextBox ID="tbAmount" runat="server" type="number" value='<%# Eval("amount") %>' min="1" step="1"></asp:TextBox>
+                                <asp:TextBox ID="tbAmount" runat="server" type="number" value='<%# Eval("amount") %>' max='<%# as_webforms_sklep.DatabaseHandler.selectQuery("SELECT stock FROM product_info WHERE id LIKE \"" + Eval("id") + "\"").Rows[0]["stock"] %>' min="1" step="1"></asp:TextBox>
                                 <asp:Button ID="bChangeProduct" CommandName="changeInBasket" CommandArgument='<%# Eval("id") %>' runat="server" Text="Zmień ilość" />
                             </td>
                             <td ><%# Eval("price") + " <span class='currency'>zł</span>" %></td>
@@ -84,7 +84,7 @@
             </table>
             <div style="text-align: center">
                 <span>Email:</span>
-                <asp:TextBox ID="tbEmail" runat="server" TextMode="Email" ForeColor="White" Enabled="False"></asp:TextBox>
+                <asp:TextBox ID="tbEmail" runat="server" TextMode="Email" ForeColor="Black" Enabled="False"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="tbEmail" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="EmailValidator" runat="server" ControlToValidate="tbEmail" ErrorMessage="Wpisz poprawny adres email." ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Display="Dynamic"></asp:RegularExpressionValidator>
                 <asp:Button ID="bOrder" runat="server" OnClick="bOrder_Click" Text="Złóż zamówienie" />
