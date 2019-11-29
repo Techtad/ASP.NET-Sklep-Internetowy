@@ -82,7 +82,7 @@ namespace as_webforms_sklep
                 totalAmount += basketItem.Amount;
             }
 
-            lTotalPrice.Text = "Cena wszystkich przedmiotów w koszyku to: " + totalPrice.ToString("N2") + " zł";
+            lTotalPrice.Text = totalPrice.ToString("N2") + " <span class='currency'>zł</span>";
 
             bOrder.Enabled = totalAmount > 0;
         }
@@ -154,6 +154,11 @@ namespace as_webforms_sklep
             }
             else
                 ClientScript.RegisterStartupScript(GetType(), "alert", "alert('Nie udało się złożyć zamówienia!')");
+        }
+
+        protected void btToMainForm_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MainForm.aspx");
         }
     }
 }

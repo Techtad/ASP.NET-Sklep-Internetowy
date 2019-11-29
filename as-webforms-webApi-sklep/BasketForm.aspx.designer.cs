@@ -22,24 +22,6 @@ namespace as_webforms_sklep {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// lTotalPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lTotalPrice;
-        
-        /// <summary>
-        /// lbToMain control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbToMain;
-        
-        /// <summary>
         /// rBasket control.
         /// </summary>
         /// <remarks>
@@ -47,6 +29,15 @@ namespace as_webforms_sklep {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rBasket;
+        
+        /// <summary>
+        /// lTotalPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lTotalPrice;
         
         /// <summary>
         /// tbEmail control.
@@ -83,5 +74,14 @@ namespace as_webforms_sklep {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button bOrder;
+        
+        /// <summary>
+        /// btToMainForm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btToMainForm;
     }
 }

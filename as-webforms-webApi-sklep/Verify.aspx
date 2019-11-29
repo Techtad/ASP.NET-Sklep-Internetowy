@@ -4,7 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>F3B.com - Strona główna</title>
+    <link href="css/all.css" rel="stylesheet" />
 </head>
 <body>
     <h1><asp:Literal ID="ltMessage" runat="server" /></h1>

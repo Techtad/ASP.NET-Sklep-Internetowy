@@ -4,7 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Rejestracja</title>
+    <title>F3B.com - Rejestracja</title>
+    <link href="css/all.css" rel="stylesheet" />
     <link href="/css/RegisterPage/registerPage.css" rel="stylesheet" />
 </head>
 <body>
@@ -82,6 +83,7 @@
                         <div class="small-container"><asp:Button ID="bGotToLogIn" runat="server" Text="Logowanie" CausesValidation="False" OnClick="bGotToLogIn_Click" UseSubmitBehavior="False" BackColor="#666666" BorderColor="#333333" BorderStyle="Ridge" ForeColor="White" /></div>
                         <div class="small-container"><asp:Label ID="Label1" runat="server" ForeColor="Red" Text="* Pola wymagane"></asp:Label></div>
                         <div class="small-container"><asp:Label ID="lMsg" runat="server" ForeColor="Red"></asp:Label></div>
+                        <div class="small-container"><asp:Button ID="btToMainForm" runat="server" OnClick="btToMainForm_Click" Text="Strona główna" BackColor="#666666" BorderColor="#333333" BorderStyle="Ridge" ForeColor="White"/></div>
                     </div>
                 </div>
             </div>

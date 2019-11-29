@@ -4,56 +4,77 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>F3B.com - Strona główna</title>
+    <link href="css/all.css" rel="stylesheet" />
     <style type="text/css">
-        .auto-style1 {
-            width: 100%;
+        * {
+            color: white;
+        }
+
+        form {
+            margin: auto;
+            background-color: 	#253147;
+            width: 800px;
+            min-height: 600px;
+            text-align: center;
+            padding: 10%:
+        }
+
+        table {
+            margin: 0 auto;
+            background-color: #2b6cae;
+            padding: 0;
+        }
+
+        td, th {
+            border: 2px solid #e1e8f0;
+            padding: 5px;
+            min-width: 150px;
+        }
+
+        input {
+            color: black;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <table class="auto-style1">
-                <tr>
-                    <td>
-                        <asp:Label ID="lTotalPrice" runat="server" Text="Cena wszystkich przedmiotów w koszyku to:"></asp:Label>
-                    </td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:LinkButton ID="lbToMain" runat="server" PostBackUrl="~/MainForm.aspx">Wróć do sklepu</asp:LinkButton>
-                    </td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-            </table>
+        <table>
+            <tr>
+                <th>
+                    Produkt
+                </th>
+                <th>Ilość</th>
+                <th>Cena</th>
+                <th>-</th>
+            </tr>
+            <asp:Repeater ID="rBasket" runat="server" OnItemCommand="basketHandler">
+                <ItemTemplate>
+                    <tr>
+                        <td><%# Eval("name") %></td>
+                        <td>
+                            <asp:TextBox ID="tbAmount" runat="server" type="number" value='<%# Eval("amount") %>' min="1" step="1"></asp:TextBox>
+                            <asp:Button ID="bChangeProduct" CommandName="changeInBasket" CommandArgument='<%# Eval("id") %>' runat="server" Text="Zmień ilość" />
+                        </td>
+                        <td ><%# Eval("price") + " <span class='currency'>zł</span>" %></td>
+                        <td><asp:Button ID="bRemoveProduct" CommandName="removeFromBasket" CommandArgument='<%# Eval("id") %>' runat="server" Text="Usuń z koszyka" /></td>
+                    </tr>
+                </ItemTemplate>
+            </asp:Repeater>
+            <tr>
+                <td style="text-align: right" colspan="2">Suma:</td>
+                <td><asp:Label ID="lTotalPrice" runat="server" Text=""></asp:Label></td>
+                <td>-</td>
+            </tr>
+        </table>
+        <div style="text-align: center">
+            <span>Email:</span>
+            <asp:TextBox ID="tbEmail" runat="server" TextMode="Email" ForeColor="White" Enabled="False"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="tbEmail" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="EmailValidator" runat="server" ControlToValidate="tbEmail" ErrorMessage="Wpisz poprawny adres email." ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Display="Dynamic"></asp:RegularExpressionValidator>
+            <asp:Button ID="bOrder" runat="server" OnClick="bOrder_Click" Text="Złóż zamówienie" />
         </div>
-        <asp:Repeater ID="rBasket" runat="server" OnItemCommand="basketHandler">
-            <ItemTemplate>
-                <div style="border: 2px solid black">
-                    <img class="product_img" src="<%# Eval("img_path") %>" style="width: 360px; height: 360px; border: 2px solid black;" />
-                    <p><%# Eval("id") %></p>
-                    <p class="product_category"><%# as_webforms_sklep.DatabaseHandler.selectQuery("SELECT name FROM product_categories WHERE id LIKE '" + Eval("category").ToString() + "'").Rows[0]["name"] %></p>
-                    <p class="product_name"><%# Eval("name") %></p>
-                    <p class="product_description"><%# Eval("description") %></p>
-                    <p class="product_price"><%# Eval("price") %></p>
-                    <p class="product_supplier"><%# Eval("supplier") %></p>
-                    <asp:TextBox ID="tbAmount" runat="server" type="number" value='<%# Eval("amount") %>' min="1" step="1"></asp:TextBox>
-                    <br />
-                    <asp:Button ID="bChangeProduct" CommandName="changeInBasket" CommandArgument='<%# Eval("id") %>' runat="server" Text="Zmień ilość" />
-                    <asp:Button ID="bRemoveProduct" CommandName="removeFromBasket" CommandArgument='<%# Eval("id") %>' runat="server" Text="Usuń z koszyka" />
-                </div>
-            </ItemTemplate>
-        </asp:Repeater>
-        Email:
-                                <asp:TextBox ID="tbEmail" runat="server" TextMode="Email" BackColor="#666666" BorderColor="#333333" ForeColor="White" Enabled="False"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="tbEmail" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="EmailValidator" runat="server" ControlToValidate="tbEmail" ErrorMessage="Wpisz poprawny adres email." ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Display="Dynamic"></asp:RegularExpressionValidator>
-                    <br />
-        <asp:Button ID="bOrder" runat="server" OnClick="bOrder_Click" Text="Złóż zamówienie" />
+        <div class="small-container"><asp:Button ID="btToMainForm" runat="server" OnClick="btToMainForm_Click" Text="Strona główna" BackColor="#666666" BorderColor="#333333" BorderStyle="Ridge" ForeColor="White"/></div>
     </form>
 </body>
 </html>

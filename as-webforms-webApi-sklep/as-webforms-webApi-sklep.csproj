@@ -98,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminPanel.aspx" />
+    <Content Include="css\all.css" />
     <Content Include="css\MainPage\footerStyle.css" />
     <Content Include="css\MainPage\headerStyle.css" />
     <Content Include="css\MainPage\mainStyle.css" />

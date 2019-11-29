@@ -97,12 +97,11 @@ namespace as_webforms_sklep
                 totalAmount += basketItem.Amount;
             }
 
-            lbToBasket.Text = "Koszyk (" + totalAmount.ToString() + ")";
+            lbToBasket.Text = totalAmount == 0 ? "Koszyk jest pusty" : "Koszyk: " + totalAmount.ToString();
         }
 
         protected void basketHandler(object source, RepeaterCommandEventArgs e)
         {
-            Debug.WriteLine("YEET");
             if (e.CommandName == "addToBasket")
             {
                 List<BasketItem> basketList;
@@ -173,6 +172,29 @@ namespace as_webforms_sklep
         protected void bSearch_Click(object sender, EventArgs e)
         {
             doSearch();
+        }
+
+        protected void rProducts_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            int stock = 0;
+            TextBox tbStock = (TextBox)e.Item.FindControl("tbStock");
+            Debug.WriteLine(tbStock.Text);
+            try
+            {
+                stock = int.Parse(tbStock.Text);
+            }
+            catch (FormatException)
+            {
+                stock = 0;
+            }
+
+            TextBox amount = (TextBox)e.Item.FindControl("tbAmount");
+            Button buyBtn = (Button)e.Item.FindControl("bAddProduct");
+            if (stock == 0)
+            {
+                amount.Enabled = false;
+                buyBtn.Enabled = false;
+            }
         }
     }
 }

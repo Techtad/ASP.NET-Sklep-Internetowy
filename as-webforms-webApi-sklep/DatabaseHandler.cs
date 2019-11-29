@@ -148,10 +148,14 @@ namespace as_webforms_sklep
             int userId = UserHandler.getUserId(userToken);
             var orderIdQuery = selectQuery("SELECT MAX(id) as maxid FROM orders");
             int orderId;
-            if (orderIdQuery.Rows.Count > 0)
+            try
+            {
                 orderId = int.Parse(orderIdQuery.Rows[0]["maxid"].ToString()) + 1;
-            else
+            }
+            catch
+            {
                 orderId = 0;
+            }
 
             var dt = DateTime.Now;
             string datetime = string.Format("{0}-{1}-{2} {3}:{4}:{5}", dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second);

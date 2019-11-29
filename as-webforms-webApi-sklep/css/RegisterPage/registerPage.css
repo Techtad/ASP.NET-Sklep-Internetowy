@@ -3,7 +3,7 @@
     padding: 0;
     overflow: hidden;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background: black;
+    background: #e1e8f0;
 }
 
 .container {
@@ -11,6 +11,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: #e1e8f0;
+    color: white;
 }
 
 .site {
@@ -20,19 +22,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("../../img/pc_background.png");
     border-left: 2px solid #888;
     border-right: 2px solid #888;
 }
 
 .login-form {
-    padding:10px;
+    padding: 10px;
     width: 576px;
     border: 2px solid #888;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    background: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #2b6cae;
 }
 
 .form-line {
@@ -76,4 +77,8 @@
 
 .auto-style2 {
     height: 30px;
+}
+
+input {
+    min-width: 160px;
 }

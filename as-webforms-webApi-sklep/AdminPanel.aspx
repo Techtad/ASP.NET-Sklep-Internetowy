@@ -4,7 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head runat="server">
-		<title>Panel Administracyjny</title>
+		<title>F3B.com - Panel Administracyjny</title>
+        <link href="css/all.css" rel="stylesheet" />
 
 		<link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 		<link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />

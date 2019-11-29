@@ -4,7 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Logowanie</title>
+    <title>F3B.com - Logowanie</title>
+    <link href="css/all.css" rel="stylesheet" />
     <link href="css/RegisterPage/registerPage.css" rel="stylesheet" />
 </head>
 <body>
