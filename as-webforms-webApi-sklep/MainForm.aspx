@@ -26,18 +26,22 @@
     <form id="form1" runat="server">
         <header>
             <div id="title">
-                <img src="assets/img/headimglow.jpg" />
+                <img src="assets/img/logo.png" />
             </div>
             <div id="menu">
                 <div id="menu-list-box">
                     <ul id="menu-list">
-                        <li>Produkty </li>
                         <li>
-                            <asp:LinkButton ID="lbToRegister" runat="server" PostBackUrl="~/RegisterForm.aspx" Visible="True">Rejestracja</asp:LinkButton></li>
+                            <asp:LinkButton ID="lbToLogin" runat="server" PostBackUrl="~/LoginForm.aspx">Logowanie</asp:LinkButton>
+                        </li>
                         <li>
-                            <asp:LinkButton ID="lbToAdmin" runat="server" PostBackUrl="~/AdminPanel.aspx" Visible="False">Panel admina</asp:LinkButton></li>
+                            <asp:LinkButton ID="lbToRegister" runat="server" PostBackUrl="~/RegisterForm.aspx" Visible="True">Rejestracja</asp:LinkButton>
+
+                        </li>
                         <li>
-                            <asp:LinkButton ID="lbToLogin" runat="server" PostBackUrl="~/LoginForm.aspx">Zaloguj się</asp:LinkButton></li>
+                            <asp:LinkButton ID="lbToAdmin" runat="server" PostBackUrl="~/AdminPanel.aspx" Visible="False">Panel admina</asp:LinkButton>
+
+                        </li>
                     </ul>
                 </div>
                 <div id="search-box">
@@ -120,12 +124,12 @@
                 </div>
                 <div id="info">
                     <p>Kontakt</p>
-                    <span>Telefon: +48 123 456 789</span>
-                    <span>Mail: sklepinternetowy@sklep.pl</span>
-                    <span>Adres: ul. Sklepowa 4/20, 32-137 Koszyce</span>
+                    <span>Telefon: +48 213 769 666</span>
+                    <span>Mail: kontakt@f3b.com</span>
+                    <span>Adres: Wawel 5, 31-001 Kraków</span>
                 </div>
             </div>
-            <div id="copyright">© by papaj</div>
+            <div id="copyright">© Techtad 2019</div>
         </footer>
     </form>
 </body>
