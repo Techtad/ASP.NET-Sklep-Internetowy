@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Configuration;
 using System.Data.SqlClient;
-using as_webforms_sklep;
+using f3b_store;
 
-namespace as_webforms_webApi_sklep
+namespace f3b_store
 {
-    public partial class Verify : System.Web.UI.Page
+    public partial class Verification : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,7 +20,7 @@ namespace as_webforms_webApi_sklep
                 if (!string.IsNullOrEmpty(Request.QueryString["ActivationCode"])) {
                     string activationCode = Request.QueryString["ActivationCode"];
                     ltMessage.Text = "Konto zostało aktywowane. Możesz się teraz zalogować.";
-                    DatabaseHandler.updateVerificationStatus(activationCode);
+                    DBOperations.updateVerificationStatus(activationCode);
                 } else
                 {
                     ltMessage.Text = "Wystąpił błąd podczas próby aktywacji konta.";

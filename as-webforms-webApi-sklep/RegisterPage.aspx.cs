@@ -1,10 +1,10 @@
-﻿using as_webforms_sklep.services;
+﻿using f3b_store.services;
 using System;
 using System.Web.UI;
 
-namespace as_webforms_sklep
+namespace f3b_store
 {
-    public partial class RegisterForm : Page
+    public partial class RegisterPage : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -15,13 +15,13 @@ namespace as_webforms_sklep
         {
             if(IsValid)
             {
-                var query = DatabaseHandler.selectQuery("SELECT username FROM users WHERE username LIKE '" + tbUsername.Text + "'");
+                var query = DBOperations.selectQuery("SELECT username FROM users WHERE username LIKE '" + tbUsername.Text + "'");
                 if(query.Rows.Count == 1)
                 {
                     lMsg.Text = "Nazwa użytkownika zajęta.";
                 } else
                 {
-                    if (UserHandler.tryToRegister(tbUsername.Text, tbPassword.Text, tbEmail.Text, new string[3] { tbFirstName.Text, tbLastName.Text, tbAddress.Text}))
+                    if (AccountOperations.tryToRegister(tbUsername.Text, tbPassword.Text, tbEmail.Text, new string[3] { tbFirstName.Text, tbLastName.Text, tbAddress.Text}))
                     {
                         EmailService.UserRegisterConfirmation(tbEmail.Text, tbUsername.Text);
                         lMsg.Text = "Pomyślnie zarejestrowano. Na podany email wysłana została wiadomość z linkiem aktywacyjnym.";
@@ -35,12 +35,12 @@ namespace as_webforms_sklep
 
         protected void bGotToLogIn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("LoginForm.aspx");
+            Response.Redirect("LoginPage.aspx");
         }
 
-        protected void btToMainForm_Click(object sender, EventArgs e)
+        protected void btToMainPage_Click(object sender, EventArgs e)
         {
-            Response.Redirect("MainForm.aspx");
+            Response.Redirect("MainPage.aspx");
         }
     }
 }

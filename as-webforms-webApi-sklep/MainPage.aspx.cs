@@ -4,15 +4,15 @@ using System.Diagnostics;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace as_webforms_sklep
+namespace f3b_store
 {
-    public partial class MainForm : Page
+    public partial class MainPage : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["usertoken"] == null)
             {
-                //Response.Redirect("LoginForm.aspx");
+                //Response.Redirect("LoginPage.aspx");
                 lLoggedIn.Text = "Nie jesteś zalogowany";
                 lbToAdmin.Visible = false;
                 lbToLogin.Visible = true;
@@ -20,9 +20,9 @@ namespace as_webforms_sklep
                 lbToRegister.Visible = true;
                 lbToLogin2.Visible = true;
             }
-            else if (UserHandler.getAccessLevel(Session["usertoken"].ToString()) == AccessLevel.ADMIN || UserHandler.getAccessLevel(Session["usertoken"].ToString()) == AccessLevel.ROOT)
+            else if (AccountOperations.getAccessLevel(Session["usertoken"].ToString()) == AccessLevel.ADMIN || AccountOperations.getAccessLevel(Session["usertoken"].ToString()) == AccessLevel.ROOT)
             {
-                lLoggedIn.Text = "Zalogowano jako <b>" + UserHandler.getUsername(Session["usertoken"].ToString()) + "</b>";
+                lLoggedIn.Text = "Zalogowano jako <b>" + AccountOperations.getUsername(Session["usertoken"].ToString()) + "</b>";
                 lbToAdmin.Visible = true;
                 lbToLogin.Visible = false;
                 bLogout.Visible = true;
@@ -31,7 +31,7 @@ namespace as_webforms_sklep
             }
             else
             {
-                lLoggedIn.Text = "Zalogowano jako <b>" + UserHandler.getUsername(Session["usertoken"].ToString()) + "</b>";
+                lLoggedIn.Text = "Zalogowano jako <b>" + AccountOperations.getUsername(Session["usertoken"].ToString()) + "</b>";
                 lbToAdmin.Visible = false;
                 lbToLogin.Visible = false;
                 bLogout.Visible = true;
@@ -41,21 +41,21 @@ namespace as_webforms_sklep
 
             if (!IsPostBack)
             {
-                rProducts.DataSource = DatabaseHandler.selectTable("product_info");
+                rProducts.DataSource = DBOperations.selectTable("product_info");
                 rProducts.DataBind();
 
-                lvCategories.DataSource = DatabaseHandler.selectTable("product_categories");
+                lvCategories.DataSource = DBOperations.selectTable("product_categories");
                 lvCategories.DataBind();
             }
 
             if(Request.QueryString["category"] != null)
             {
                 string category = Request.QueryString["category"];
-                var catQuery = DatabaseHandler.selectQuery("SELECT id FROM product_categories WHERE name LIKE '" + category + "'");
+                var catQuery = DBOperations.selectQuery("SELECT id FROM product_categories WHERE name LIKE '" + category + "'");
                 if (catQuery.Rows.Count == 1)
                 {
                     string catId = catQuery.Rows[0]["id"].ToString();
-                    rProducts.DataSource = DatabaseHandler.selectQuery("SELECT * FROM product_info WHERE category LIKE '" + catId + "'");
+                    rProducts.DataSource = DBOperations.selectQuery("SELECT * FROM product_info WHERE category LIKE '" + catId + "'");
                     rProducts.DataBind();
                 }
             }
@@ -73,9 +73,9 @@ namespace as_webforms_sklep
         {
             if (Session["usertoken"] != null)
             {
-                UserHandler.tryToLogOut(Session["usertoken"].ToString());
+                AccountOperations.tryToLogOut(Session["usertoken"].ToString());
                 Session["usertoken"] = null;
-                Response.Redirect("MainForm.aspx");
+                Response.Redirect("MainPage.aspx");
             }
         }
 
@@ -161,7 +161,7 @@ namespace as_webforms_sklep
 
         void doSearch()
         {
-            rProducts.DataSource = DatabaseHandler.selectQuery(string.Format("SELECT * FROM product_info WHERE name LIKE '%{0}%' OR (SELECT name FROM product_categories WHERE id LIKE category) LIKE '%{0}%' OR description LIKE '%{0}%' OR supplier LIKE '%{0}%'", tbSearch.Text));
+            rProducts.DataSource = DBOperations.selectQuery(string.Format("SELECT * FROM product_info WHERE name LIKE '%{0}%' OR (SELECT name FROM product_categories WHERE id LIKE category) LIKE '%{0}%' OR description LIKE '%{0}%' OR supplier LIKE '%{0}%'", tbSearch.Text));
             rProducts.DataBind();
         }
 

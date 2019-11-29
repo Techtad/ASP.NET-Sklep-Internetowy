@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace as_webforms_webApi_sklep {
+namespace f3b_store {
     
     
     public partial class ReceiptPage {

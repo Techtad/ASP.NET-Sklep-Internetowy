@@ -8,7 +8,7 @@ using System.Web.SessionState;
 using System.Web.Http;
 using System.Web.UI;
 
-namespace as_webforms_webApi_sklep
+namespace f3b_store
 {
     public class Global : HttpApplication
     {

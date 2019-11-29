@@ -1,4 +1,4 @@
-﻿namespace as_webforms_sklep
+﻿namespace f3b_store
 {
     public class BasketItem
     {

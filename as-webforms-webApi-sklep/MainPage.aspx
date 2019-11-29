@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeBehind="MainForm.aspx.cs" Inherits="as_webforms_sklep.MainForm" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeBehind="MainPage.aspx.cs" Inherits="f3b_store.MainPage" %>
 
 <!DOCTYPE html>
 
@@ -22,10 +22,10 @@
                 <div id="menu-list-box">
                     <ul id="menu-list">
                         <li>
-                            <asp:LinkButton ID="lbToLogin" runat="server" PostBackUrl="~/LoginForm.aspx">Logowanie</asp:LinkButton>
+                            <asp:LinkButton ID="lbToLogin" runat="server" PostBackUrl="~/LoginPage.aspx">Logowanie</asp:LinkButton>
                         </li>
                         <li>
-                            <asp:LinkButton ID="lbToRegister" runat="server" PostBackUrl="~/RegisterForm.aspx" Visible="True">Rejestracja</asp:LinkButton>
+                            <asp:LinkButton ID="lbToRegister" runat="server" PostBackUrl="~/RegisterPage.aspx" Visible="True">Rejestracja</asp:LinkButton>
 
                         </li>
                         <li>
@@ -35,7 +35,7 @@
                     </ul>
                 </div>
                 <div id="user-status">
-                    <asp:LinkButton ID="lbToBasket" CssClass="cart-bt" runat="server" PostBackUrl="~/BasketForm.aspx">Koszyk</asp:LinkButton>
+                    <asp:LinkButton ID="lbToBasket" CssClass="cart-bt" runat="server" PostBackUrl="~/BasketPage.aspx">Koszyk</asp:LinkButton>
                     <asp:Label ID="lLoggedIn" CssClass="logged-as" runat="server" Text="Nie jesteś zalogowany."></asp:Label>
                     <asp:Button ID="bLogout" CssClass="logout-bt" runat="server" OnClick="bLogout_Click" Text="Wyloguj" Width="75px" />
                 </div>
@@ -71,7 +71,7 @@
                                 <span class="prod-title"><%# Eval("name") %></span>
                                 <div class="prod-spec-box">
                                     <div class="prod-spec">
-                                        <p class="spec-text">Gatunek: <%# as_webforms_sklep.DatabaseHandler.selectQuery("SELECT name FROM product_categories WHERE id LIKE '" + Eval("category").ToString() + "'").Rows[0]["name"] %></p>
+                                        <p class="spec-text">Gatunek: <%# f3b_store.DBOperations.selectQuery("SELECT name FROM product_categories WHERE id LIKE '" + Eval("category").ToString() + "'").Rows[0]["name"] %></p>
                                         <p class="spec-text">
                                             Opis: <%# Eval("description") %>
                                         </p>
@@ -100,15 +100,15 @@
                 <div id="sitemap">
                     <div id="konto">
                         <p>Konto</p>
-                        <asp:LinkButton ID="lbToRegister2" runat="server" PostBackUrl="~/RegisterForm.aspx" Visible="False">Rejestracja</asp:LinkButton>
+                        <asp:LinkButton ID="lbToRegister2" runat="server" PostBackUrl="~/RegisterPage.aspx" Visible="False">Rejestracja</asp:LinkButton>
                         <asp:LinkButton ID="lbToAdmin2" runat="server" PostBackUrl="~/AdminPanel.aspx" Visible="False">Panel admina</asp:LinkButton>
-                        <asp:LinkButton ID="lbToLogin2" runat="server" PostBackUrl="~/LoginForm.aspx">Zaloguj się</asp:LinkButton>
-                        <asp:LinkButton ID="lbToBasket2" runat="server" PostBackUrl="~/BasketForm.aspx">Koszyk</asp:LinkButton>
+                        <asp:LinkButton ID="lbToLogin2" runat="server" PostBackUrl="~/LoginPage.aspx">Zaloguj się</asp:LinkButton>
+                        <asp:LinkButton ID="lbToBasket2" runat="server" PostBackUrl="~/BasketPage.aspx">Koszyk</asp:LinkButton>
                     </div>
                     <div id="sklep">
                         <p>Sklep</p>
-                        <asp:LinkButton ID="lbToMainPage" runat="server" PostBackUrl="~/MainForm.aspx">Strona główna</asp:LinkButton>
-                        <asp:LinkButton ID="lbToContact" runat="server" PostBackUrl="~/MainForm.aspx">Kontakt</asp:LinkButton>
+                        <asp:LinkButton ID="lbToMainPage" runat="server" PostBackUrl="~/MainPage.aspx">Strona główna</asp:LinkButton>
+                        <asp:LinkButton ID="lbToContact" runat="server" PostBackUrl="~/MainPage.aspx">Kontakt</asp:LinkButton>
                     </div>
                 </div>
                 <div id="info">

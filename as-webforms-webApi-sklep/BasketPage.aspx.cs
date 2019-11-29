@@ -1,4 +1,4 @@
-﻿using as_webforms_sklep.services;
+﻿using f3b_store.services;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,9 +8,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace as_webforms_sklep
+namespace f3b_store
 {
-    public partial class BasketForm : System.Web.UI.Page
+    public partial class BasketPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,7 +19,7 @@ namespace as_webforms_sklep
                 tbEmail.Enabled = true;
             } else
             {
-                tbEmail.Text = UserHandler.getUserData(Session["usertoken"].ToString()).Rows[0]["email"].ToString();
+                tbEmail.Text = AccountOperations.getUserData(Session["usertoken"].ToString()).Rows[0]["email"].ToString();
             }
 
             if (Session["basket"] == null)
@@ -52,7 +52,7 @@ namespace as_webforms_sklep
             DataTable dt = new DataTable();
             foreach (BasketItem basketItem in basketList)
             {
-                DataTable tempDt = DatabaseHandler.selectQuery("SELECT * FROM product_info WHERE id = " + basketItem.ProductId);
+                DataTable tempDt = DBOperations.selectQuery("SELECT * FROM product_info WHERE id = " + basketItem.ProductId);
                 tempDt.Columns.Add("amount", typeof(int));
                 tempDt.Rows[0]["amount"] = basketItem.Amount;
 
@@ -146,7 +146,7 @@ namespace as_webforms_sklep
         {
             if (!IsValid) return;
 
-            int orderCreated = DatabaseHandler.createOrder(Session["usertoken"] == null ? "" : (string)Session["usertoken"], (List<BasketItem>)Session["basket"]);
+            int orderCreated = DBOperations.createOrder(Session["usertoken"] == null ? "" : (string)Session["usertoken"], (List<BasketItem>)Session["basket"]);
             if (orderCreated != -1)
             {
                 EmailService.ProductBought(tbEmail.Text, orderCreated.ToString(), (List<BasketItem>)Session["basket"]);
@@ -157,9 +157,9 @@ namespace as_webforms_sklep
                 ClientScript.RegisterStartupScript(GetType(), "alert", "alert('Nie udało się złożyć zamówienia!')");
         }
 
-        protected void btToMainForm_Click(object sender, EventArgs e)
+        protected void btToMainPage_Click(object sender, EventArgs e)
         {
-            Response.Redirect("MainForm.aspx");
+            Response.Redirect("MainPage.aspx");
         }
     }
 }

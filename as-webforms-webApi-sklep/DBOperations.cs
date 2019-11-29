@@ -4,9 +4,9 @@ using System.Data;
 using System.Diagnostics;
 using MySql.Data.MySqlClient;
 
-namespace as_webforms_sklep
+namespace f3b_store
 {
-    public static class DatabaseHandler
+    public static class DBOperations
     {
         private const string connString =
                "SERVER=inf16.tl.krakow.pl;" +
@@ -146,7 +146,7 @@ namespace as_webforms_sklep
 
         public static int createOrder(string userToken, List<BasketItem> basket)
         {
-            int userId = UserHandler.getUserId(userToken);
+            int userId = AccountOperations.getUserId(userToken);
             var orderIdQuery = selectQuery("SELECT MAX(id) as maxid FROM orders");
             int orderId;
             try

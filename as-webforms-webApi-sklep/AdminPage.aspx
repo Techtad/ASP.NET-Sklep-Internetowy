@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminPanel.aspx.cs" Inherits="as_webforms_sklep.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminPage.aspx.cs" Inherits="f3b_store.AdminPage" %>
 
 <!DOCTYPE html>
 
@@ -32,7 +32,7 @@
                 <div id="menu-list-box">
                     <ul id="menu-list">
                         <li>
-                            <asp:LinkButton ID="lbToLogin" runat="server" PostBackUrl="~/MainForm.aspx">Strona główna</asp:LinkButton>
+                            <asp:LinkButton ID="lbToLogin" runat="server" PostBackUrl="~/MainPage.aspx">Strona główna</asp:LinkButton>
                         </li>
                 </div>
             </div>

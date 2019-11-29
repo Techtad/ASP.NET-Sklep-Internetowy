@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeBehind="BasketForm.aspx.cs" Inherits="as_webforms_sklep.BasketForm" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeBehind="BasketPage.aspx.cs" Inherits="f3b_store.BasketPage" %>
 
 <!DOCTYPE html>
 
@@ -48,7 +48,7 @@
                 <div id="menu-list-box">
                     <ul id="menu-list">
                         <li>
-                            <asp:LinkButton ID="lbToLogin" runat="server" PostBackUrl="~/MainForm.aspx">Strona główna</asp:LinkButton>
+                            <asp:LinkButton ID="lbToLogin" runat="server" PostBackUrl="~/MainPage.aspx">Strona główna</asp:LinkButton>
                         </li>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                         <tr>
                             <td><%# Eval("name") %></td>
                             <td>
-                                <asp:TextBox ID="tbAmount" runat="server" type="number" value='<%# Eval("amount") %>' max='<%# as_webforms_sklep.DatabaseHandler.selectQuery("SELECT stock FROM product_info WHERE id LIKE \"" + Eval("id") + "\"").Rows[0]["stock"] %>' min="1" step="1"></asp:TextBox>
+                                <asp:TextBox ID="tbAmount" runat="server" type="number" value='<%# Eval("amount") %>' max='<%# f3b_store.DBOperations.selectQuery("SELECT stock FROM product_info WHERE id LIKE \"" + Eval("id") + "\"").Rows[0]["stock"] %>' min="1" step="1"></asp:TextBox>
                                 <asp:Button ID="bChangeProduct" CommandName="changeInBasket" CommandArgument='<%# Eval("id") %>' runat="server" Text="Zmień ilość" />
                             </td>
                             <td ><%# Eval("price") + " <span class='currency'>zł</span>" %></td>

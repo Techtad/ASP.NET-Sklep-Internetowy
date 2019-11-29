@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Web.UI;
 
-namespace as_webforms_sklep
+namespace f3b_store
 {
-    public partial class LoginForm : Page
+    public partial class LoginPage : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -12,25 +12,25 @@ namespace as_webforms_sklep
 
         protected void bLogIn_Click(object sender, EventArgs e)
         {
-            string token = UserHandler.tryToLogIn(tbUsername.Text, tbPassword.Text);
+            string token = AccountOperations.tryToLogIn(tbUsername.Text, tbPassword.Text);
             if(token == "fail")
             {
                 lMsg.Text = "Nieprawidłowy login lub hasło, albo konto nie zostało jeszcze aktywowane.";
             } else
             {
                 Session["usertoken"] = token;
-                Response.Redirect("MainForm.aspx");
+                Response.Redirect("MainPage.aspx");
             }
         }
 
         protected void bGoToRegister_Click(object sender, EventArgs e)
         {
-            Response.Redirect("RegisterForm.aspx");
+            Response.Redirect("RegisterPage.aspx");
         }
 
-        protected void btToMainForm_Click(object sender, EventArgs e)
+        protected void btToMainPage_Click(object sender, EventArgs e)
         {
-            Response.Redirect("MainForm.aspx");
+            Response.Redirect("MainPage.aspx");
         }
     }
 }

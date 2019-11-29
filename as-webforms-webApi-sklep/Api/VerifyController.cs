@@ -5,17 +5,17 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace as_webforms_webApi_sklep.Api
+namespace f3b_store.Api
 {
-    public class VerifyController : ApiController
+    public class VerificationController : ApiController
     {
-        // GET: api/Verify
+        // GET: api/Verification
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET: api/Verify/5
+        // GET: api/Verification/5
         public string Get(int id)
         {
             string url = "https://translate.google.pl/#en|pl|";
@@ -23,17 +23,17 @@ namespace as_webforms_webApi_sklep.Api
             return "https://translate.google.pl/#en|pl|";
         }
 
-        // POST: api/Verify
+        // POST: api/Verification
         public void Post([FromBody]string value)
         {
         }
 
-        // PUT: api/Verify/5
+        // PUT: api/Verification/5
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE: api/Verify/5
+        // DELETE: api/Verification/5
         public void Delete(int id)
         {
         }

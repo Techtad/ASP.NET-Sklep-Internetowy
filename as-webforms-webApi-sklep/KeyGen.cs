@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace as_webforms_webApi_sklep
+namespace f3b_store
 {
     public static class KeyGen
     {

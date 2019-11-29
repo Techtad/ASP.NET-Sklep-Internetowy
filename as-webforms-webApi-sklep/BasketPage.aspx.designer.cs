@@ -7,10 +7,10 @@
 // </generowany automatycznie>
 //------------------------------------------------------------------------------
 
-namespace as_webforms_sklep {
+namespace f3b_store {
     
     
-    public partial class BasketForm {
+    public partial class BasketPage {
         
         /// <summary>
         /// Kontrolka form1.

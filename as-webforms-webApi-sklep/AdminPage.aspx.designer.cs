@@ -7,10 +7,10 @@
 // </generowany automatycznie>
 //------------------------------------------------------------------------------
 
-namespace as_webforms_sklep {
+namespace f3b_store {
     
     
-    public partial class WebForm1 {
+    public partial class AdminPage {
         
         /// <summary>
         /// Kontrolka form1.

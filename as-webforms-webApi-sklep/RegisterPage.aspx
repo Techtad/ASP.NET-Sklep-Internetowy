@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegisterForm.aspx.cs" Inherits="as_webforms_sklep.RegisterForm" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegisterPage.aspx.cs" Inherits="f3b_store.RegisterPage" %>
 
 <!DOCTYPE html>
 
@@ -83,7 +83,7 @@
                         <div class="small-container"><asp:Button ID="bGotToLogIn" runat="server" Text="Logowanie" CausesValidation="False" OnClick="bGotToLogIn_Click" UseSubmitBehavior="False" BackColor="#666666" BorderColor="#333333" BorderStyle="Ridge" ForeColor="White" /></div>
                         <div class="small-container"><asp:Label ID="Label1" runat="server" ForeColor="Red" Text="* Pola wymagane"></asp:Label></div>
                         <div class="small-container"><asp:Label ID="lMsg" runat="server" ForeColor="Red"></asp:Label></div>
-                        <div class="small-container"><asp:Button ID="btToMainForm" runat="server" OnClick="btToMainForm_Click" Text="Strona główna" BackColor="#666666" BorderColor="#333333" BorderStyle="Ridge" ForeColor="White"/></div>
+                        <div class="small-container"><asp:Button ID="btToMainPage" runat="server" OnClick="btToMainPage_Click" Text="Strona główna" BackColor="#666666" BorderColor="#333333" BorderStyle="Ridge" ForeColor="White"/></div>
                     </div>
                 </div>
             </div>

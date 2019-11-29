@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29424.173
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "as-webforms-webApi-sklep", "as-webforms-webApi-sklep\as-webforms-webApi-sklep.csproj", "{C0B8A88F-29EE-4184-852E-2E6DAFD83003}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "f3b_store", "as-webforms-webApi-sklep\f3b_store.csproj", "{C0B8A88F-29EE-4184-852E-2E6DAFD83003}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

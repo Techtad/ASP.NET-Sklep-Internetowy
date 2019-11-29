@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ReceiptPage.aspx.cs" Inherits="as_webforms_webApi_sklep.ReceiptPage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ReceiptPage.aspx.cs" Inherits="f3b_store.ReceiptPage" %>
 
 <!DOCTYPE html>
 
@@ -18,7 +18,7 @@
                 <div id="menu-list-box">
                     <ul id="menu-list">
                         <li>
-                            <asp:LinkButton ID="lbToLogin" runat="server" PostBackUrl="~/MainForm.aspx">Strona główna</asp:LinkButton>
+                            <asp:LinkButton ID="lbToLogin" runat="server" PostBackUrl="~/MainPage.aspx">Strona główna</asp:LinkButton>
                         </li>
                 </div>
             </div>

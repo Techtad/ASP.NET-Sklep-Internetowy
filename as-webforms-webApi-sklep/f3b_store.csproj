@@ -97,7 +97,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AdminPanel.aspx" />
+    <Content Include="AdminPage.aspx" />
     <Content Include="css\all.css" />
     <Content Include="css\MainPage\footerStyle.css" />
     <Content Include="css\MainPage\headerStyle.css" />
@@ -105,14 +105,14 @@
     <Content Include="css\MainPage\productStyle.css" />
     <Content Include="css\RegisterPage\registerPage.css" />
     <Content Include="res\img\logo.png" />
-    <Content Include="BasketForm.aspx" />
+    <Content Include="BasketPage.aspx" />
     <Content Include="css\AdminPanel\admin_panel.css" />
     <Content Include="Global.asax" />
     <Content Include="js\tabs.js" />
-    <Content Include="LoginForm.aspx" />
-    <Content Include="MainForm.aspx" />
+    <Content Include="LoginPage.aspx" />
+    <Content Include="MainPage.aspx" />
     <Content Include="ReceiptPage.aspx" />
-    <Content Include="RegisterForm.aspx" />
+    <Content Include="RegisterPage.aspx" />
     <Content Include="res\products\arma3.jpg" />
     <Content Include="res\products\eu4.jfif" />
     <Content Include="res\products\gta5.jfif" />
@@ -121,45 +121,45 @@
     <Content Include="res\products\minecraft.png" />
     <Content Include="res\products\skyrim.jpg" />
     <Content Include="res\products\witcher3.jfif" />
-    <Content Include="Verify.aspx" />
+    <Content Include="Verification.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminPanel.aspx.cs">
-      <DependentUpon>AdminPanel.aspx</DependentUpon>
+    <Compile Include="AdminPage.aspx.cs">
+      <DependentUpon>AdminPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminPanel.aspx.designer.cs">
-      <DependentUpon>AdminPanel.aspx</DependentUpon>
+    <Compile Include="AdminPage.aspx.designer.cs">
+      <DependentUpon>AdminPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Api\VerifyController.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="BasketForm.aspx.cs">
-      <DependentUpon>BasketForm.aspx</DependentUpon>
+    <Compile Include="BasketPage.aspx.cs">
+      <DependentUpon>BasketPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BasketForm.aspx.designer.cs">
-      <DependentUpon>BasketForm.aspx</DependentUpon>
+    <Compile Include="BasketPage.aspx.designer.cs">
+      <DependentUpon>BasketPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="BasketItem.cs" />
-    <Compile Include="DatabaseHandler.cs" />
+    <Compile Include="DBOperations.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="KeyGen.cs" />
-    <Compile Include="LoginForm.aspx.cs">
-      <DependentUpon>LoginForm.aspx</DependentUpon>
+    <Compile Include="LoginPage.aspx.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="LoginForm.aspx.designer.cs">
-      <DependentUpon>LoginForm.aspx</DependentUpon>
+    <Compile Include="LoginPage.aspx.designer.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.aspx.cs">
-      <DependentUpon>MainForm.aspx</DependentUpon>
+    <Compile Include="MainPage.aspx.cs">
+      <DependentUpon>MainPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MainForm.aspx.designer.cs">
-      <DependentUpon>MainForm.aspx</DependentUpon>
+    <Compile Include="MainPage.aspx.designer.cs">
+      <DependentUpon>MainPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReceiptPage.aspx.cs">
@@ -169,21 +169,21 @@
     <Compile Include="ReceiptPage.aspx.designer.cs">
       <DependentUpon>ReceiptPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RegisterForm.aspx.cs">
-      <DependentUpon>RegisterForm.aspx</DependentUpon>
+    <Compile Include="RegisterPage.aspx.cs">
+      <DependentUpon>RegisterPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RegisterForm.aspx.designer.cs">
-      <DependentUpon>RegisterForm.aspx</DependentUpon>
+    <Compile Include="RegisterPage.aspx.designer.cs">
+      <DependentUpon>RegisterPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="services\EmailService.cs" />
-    <Compile Include="UserHandler.cs" />
-    <Compile Include="Verify.aspx.cs">
-      <DependentUpon>Verify.aspx</DependentUpon>
+    <Compile Include="AccountOperations.cs" />
+    <Compile Include="Verification.aspx.cs">
+      <DependentUpon>Verification.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Verify.aspx.designer.cs">
-      <DependentUpon>Verify.aspx</DependentUpon>
+    <Compile Include="Verification.aspx.designer.cs">
+      <DependentUpon>Verification.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

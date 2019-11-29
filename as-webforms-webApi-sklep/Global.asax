@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="as_webforms_webApi_sklep.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="f3b_store.Global" Language="C#" %>

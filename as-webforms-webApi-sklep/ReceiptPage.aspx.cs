@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace as_webforms_webApi_sklep
+namespace f3b_store
 {
     public partial class ReceiptPage : System.Web.UI.Page
     {

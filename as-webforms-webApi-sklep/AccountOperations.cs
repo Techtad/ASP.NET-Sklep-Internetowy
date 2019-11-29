@@ -1,13 +1,10 @@
-﻿using as_webforms_sklep.services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Net;
-using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace as_webforms_sklep
+namespace f3b_store
 {
     public enum AccessLevel {
         UNKNOWN = -1,
@@ -17,7 +14,7 @@ namespace as_webforms_sklep
         ANONYMOUS = 3
     }
 
-    public static class UserHandler
+    public static class AccountOperations
     {
         struct ServerSideSession {
             public bool Success { get; }
@@ -29,11 +26,11 @@ namespace as_webforms_sklep
             public ServerSideSession(string username, string password)
             { 
                 string passwordHash = CalculateMD5Hash(password);
-                var queryResp = DatabaseHandler.selectQuery("SELECT id FROM users WHERE username LIKE '" + username + "' AND password_hash LIKE '" + passwordHash + "'");
+                var queryResp = DBOperations.selectQuery("SELECT id FROM users WHERE username LIKE '" + username + "' AND password_hash LIKE '" + passwordHash + "'");
                 if (queryResp.Rows.Count == 1)
                 {
                     int id = int.Parse(queryResp.Rows[0]["id"].ToString());
-                    bool isVerified = Convert.ToBoolean(DatabaseHandler.selectQuery("SELECT verified FROM user_data WHERE user_id LIKE '" + id.ToString() + "'").Rows[0]["verified"]);
+                    bool isVerified = Convert.ToBoolean(DBOperations.selectQuery("SELECT verified FROM user_data WHERE user_id LIKE '" + id.ToString() + "'").Rows[0]["verified"]);
                     if(isVerified)
                     {
                         UserId = id;
@@ -101,19 +98,19 @@ namespace as_webforms_sklep
 
         public static bool tryToRegister(string username, string password, string email, string[] data)
         {
-            int userAccessLevel = int.Parse(DatabaseHandler.selectQuery("SELECT id FROM access_levels WHERE name LIKE 'USER'").Rows[0]["id"].ToString());
+            int userAccessLevel = int.Parse(DBOperations.selectQuery("SELECT id FROM access_levels WHERE name LIKE 'USER'").Rows[0]["id"].ToString());
             string userCMD = "INSERT INTO users (username, password_hash, access_level) VALUES('{0}', '{1}', '{2}')";
             string userDataCMD = "INSERT INTO user_data (user_id, email, first_name, last_name, billing_address) VALUES('{0}', '{1}', '{2}', '{3}', '{4}')";
 
-            var transaction = new DatabaseHandler.Transaction();
+            var transaction = new DBOperations.Transaction();
             try
             {
                 int userInsertSuccess = transaction.executeCommand(string.Format(userCMD, username, CalculateMD5Hash(password), userAccessLevel.ToString()));
                 if (userInsertSuccess == 1)
                 {
                     transaction.commit();
-                    transaction = new DatabaseHandler.Transaction();
-                    int userID = int.Parse(DatabaseHandler.selectQuery("SELECT id FROM users WHERE username LIKE '" + username + "'").Rows[0]["id"].ToString());
+                    transaction = new DBOperations.Transaction();
+                    int userID = int.Parse(DBOperations.selectQuery("SELECT id FROM users WHERE username LIKE '" + username + "'").Rows[0]["id"].ToString());
                     int dataInsertSuccess = transaction.executeCommand(string.Format(userDataCMD, userID.ToString(), email, data[0], data[1], data[2]));
                     if (dataInsertSuccess == 1)
                     {
@@ -155,7 +152,7 @@ namespace as_webforms_sklep
             if (sessions.ContainsKey(token))
             {
                 var user = sessions[token];
-                var levelIdQuery = DatabaseHandler.selectQuery("SELECT access_level FROM users WHERE id LIKE '" + user.UserId + "'");
+                var levelIdQuery = DBOperations.selectQuery("SELECT access_level FROM users WHERE id LIKE '" + user.UserId + "'");
                 if (levelIdQuery.Rows.Count == 1)
                 {
                     int levelId = int.Parse(levelIdQuery.Rows[0]["access_level"].ToString());
@@ -169,7 +166,7 @@ namespace as_webforms_sklep
         // Dla użytku serwerowego bez sesji, np. wysyłanie maila potwierdzającego rejestrację/zamówienie
         public static DataTable getUserData(int userId)
         {
-            var query = DatabaseHandler.selectQuery("SELECT * FROM user_data WHERE user_id LIKE '" + userId + "'");
+            var query = DBOperations.selectQuery("SELECT * FROM user_data WHERE user_id LIKE '" + userId + "'");
             if (query.Rows.Count == 1)
                 return query;
             else
@@ -186,7 +183,7 @@ namespace as_webforms_sklep
 
         public static bool deleteUser(string id)
         {
-            var transaction = new DatabaseHandler.Transaction();
+            var transaction = new DBOperations.Transaction();
             int affectedRecords1 = transaction.executeCommand("DELETE FROM user_data WHERE user_id='" + id + "'");
             int affectedRecords2 = transaction.executeCommand("DELETE FROM users WHERE id='" + id + "'");
             // Obie operacja powinny usunąć nie mniej i nie więcej niż 1 rekord
@@ -203,7 +200,7 @@ namespace as_webforms_sklep
 
         public static bool updateAccess(string id, string access)
         {
-            var transaction = new DatabaseHandler.Transaction();
+            var transaction = new DBOperations.Transaction();
             int affectedRecords = transaction.executeCommand("UPDATE users SET access_level='" + access + "' WHERE id='" + id + "'");
             if(affectedRecords == 1)
             {
